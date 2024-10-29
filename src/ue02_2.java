@@ -28,19 +28,19 @@ public class ue02_2 {
         // 1. Leere Eingaben abfangen
         if (yearString.isEmpty()) { // Da ich es vorher in einen String umgewandelt habe, kann ich mit .isEmpty() überprüfen ob nichts eingegeben wurde.
             System.out.println("Fehler: Die Eingabe darf nicht leer sein.");
-            System.exit(0); // Programm beenden
+            return; // Programm beenden
         }
         
         // 2. Überprüfen, ob nur Ziffern enthalten sind
         if (!yearString.matches("\\d+")) { // Mit dem RegEx \\d+ kann man überprüfen, ob nur Ziffern enthalten sind. Mit der Funktion .matches() überprüfen wir ob nur Ziffern enthalten sind und returnen wenn ja --> true. Deshalb auch das NIHT (!), da wir es hier ja wollen.
             System.out.println("Fehler: Die Eingabe darf nur aus Ziffern bestehen.");
-            System.exit(0); // Programm beenden
+            return; // Programm beenden
         }
         
         // 3. Das Jahr darf maximal 4 Ziffern haben.
         if (yearString.length() > 4) {
             System.out.println("Fehler: Das Jahr darf maximal 4 Ziffern haben.");
-            System.exit(0); // Programm beenden
+            return; // Programm beenden
         }
 
         int year = Integer.parseInt(yearString); // Der String wird in einen int umgewandelt und year zugewiesen.
