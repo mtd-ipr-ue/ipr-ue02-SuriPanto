@@ -48,9 +48,9 @@ public class ue02_2 {
                 break;
             case 2:
                 if (schaltjahr == true) {
-                    System.out.println("Der Februar hat im Schaltjahr " + year + " 29 Tage.");
+                    System.out.println("Der Februar hat im Schaltjahr " + year + ", 29 Tage.");
                 } else {
-                    System.out.println("Da " + year + " kein Schaltjahr ist. Hat der Februar 28 Tage");
+                    System.out.println("Da " + year + " kein Schaltjahr ist. Hat der Februar 28 Tage.");
                 }
                 break;
             case 3:
