@@ -17,13 +17,33 @@ public class ue02_2 {
     public static void main(String[] args) {
         Scanner myScanner = new Scanner(System.in);
 
-        System.out.println("Geben Sie bitte eine Jahreszahl (z.B.: 1988) ein: ");
-        int year = myScanner.nextInt();
+        System.out.println("Geben Sie bitte eine Jahreszahl (z.B.: 1988) ein:\nDas Jahr darf maximal 4 Ziffern haben. ");
+        String yearString = myScanner.nextLine();
 
         System.out.println("Und nun eines der zwölf Monate (1-12) in diesem Jahr: ");
         int month = myScanner.nextInt();
 
         myScanner.close();
+
+        // 1. Leere Eingaben abfangen
+        if (yearString.isEmpty()) { // Da ich es vorher in einen String umgewandelt habe, kann ich mit .isEmpty() überprüfen ob nichts eingegeben wurde.
+            System.out.println("Fehler: Die Eingabe darf nicht leer sein.");
+            System.exit(0); // Programm beenden
+        }
+        
+        // 2. Überprüfen, ob nur Ziffern enthalten sind
+        if (!yearString.matches("\\d+")) { // Mit dem RegEx \\d+ kann man überprüfen, ob nur Ziffern enthalten sind. Mit der Funktion .matches() überprüfen wir ob nur Ziffern enthalten sind und returnen wenn ja --> true. Deshalb auch das NIHT (!), da wir es hier ja wollen.
+            System.out.println("Fehler: Die Eingabe darf nur aus Ziffern bestehen.");
+            System.exit(0); // Programm beenden
+        }
+        
+        // 3. Das Jahr darf maximal 4 Ziffern haben.
+        if (yearString.length() > 4) {
+            System.out.println("Fehler: Das Jahr darf maximal 4 Ziffern haben.");
+            System.exit(0); // Programm beenden
+        }
+
+        int year = Integer.parseInt(yearString); // Der String wird in einen int umgewandelt und year zugewiesen.
 
         boolean schaltjahr = false;
 
@@ -82,6 +102,9 @@ public class ue02_2 {
                 break;
             case 12:
                 System.out.println("Der Dezember hat 31 Tage.");
+                break;
+            default: // Mit default, werden alle Eingaben die nicht im Case sind (1-12) hierher geleitet.
+                System.out.println("Der eingegebene Wert liegt nicht zwischen 1-12!");
                 break;
         }
     }
