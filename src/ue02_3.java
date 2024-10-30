@@ -27,19 +27,16 @@ public class ue02_3 {
         Da unser Viertelkreis nur im ersten Quadranten liegt, 
         wird die Überprüfung auf den Kreisradius in diesem Bereich durch x² + y² <= 16 eingeschränkt.*/
 
-        // Liegt der Punkt in dem Quadrat? Auf beiden Achsen 0-4?
-        if (x < 0 || x > 4 || y < 0 || y > 4) { 
+        // Liegt der Punkt in dem Viereck? Auf beiden Achsen 0-4?
+        if (x > 0 && x < 4 && y > 0 && y < 4) { 
+            // Liegt der Punkt im Bereich des Viertelkreises? 
+            if (x * x + y * y <= 16) {
+                System.out.println("Der Punkt " + x + " | " + y + " liegt außerhalb des Bereichs!");
+            } else {
+                System.out.println("Der Punkt " + x + " | " + y + " liegt innerhalb des Bereichs!");
+            }
+        } else {
             System.out.println("Der Punkt " + x + " | " + y + " liegt außerhalb des Bereichs!");
-            return;
         }
-        
-        // Liegt der Punkt im Bereich des Viertelkreises? 
-        if (x * x + y * y <= 16) {
-            System.out.println("Der Punkt " + x + " | " + y + " liegt außerhalb des Bereichs!");
-            return;
-        }
-
-        System.out.println("Der Punkt " + x + " | " + y + " liegt innerhalb des Bereichs!");
-        
     }
 }
