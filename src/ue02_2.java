@@ -47,18 +47,7 @@ public class ue02_2 {
 
         boolean schaltjahr = false;
 
-        // Ist die Jahreszahl durch vier teilbar, aber nicht durch 100, ist es ein Schaltjahr. 2008 fällt unter diese Regel.
-        if (year % 4 == 0 && year % 100 != 0){ 
-            schaltjahr = true;
-        }
-
-        // Ist die Jahreszahl durch 100 teilbar, aber nicht durch 400, ist es kein Schaltjahr. 2100 wird kein Schaltjahr sein.
-        if (year % 100 == 0 && year % 400 != 0){
-            schaltjahr = false;
-        }
-
-        // Ist die Jahreszahl durch 400 teilbar, dann ist es ein Schaltjahr. Deshalb war das Jahr 2000 ein Schaltjahr.
-        if (year % 400 == 0){
+        if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)){ 
             schaltjahr = true;
         }
 
